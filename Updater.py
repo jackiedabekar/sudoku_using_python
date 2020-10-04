@@ -12,13 +12,23 @@ if os_name == 'linux':
 	#Create File
 	os.system('pip3 list -o > outdated.txt')
 
-	try:
-		if 'outdated.txt' in os.listdir():
-			with open('outdated.txt', 'r') as file:
-				for line in file.readlines()[2:]:
-					extract_word = re.findall('^[a-zA-Z]+', line)
-					package_name = ''.join(extract_word)
-					os.system(f'pip3 install --upgrade {package_name}')
-		os.system('rm outdated.txt')
-	except:
-		pass
+	if 'outdated.txt' in os.listdir():
+		with open('outdated.txt', 'r') as file:
+			for line in file.readlines()[2:]:
+				extract_word = re.findall('^[a-zA-Z]+', line)
+				package_name = ''.join(extract_word)
+				os.system(f'pip3 install --upgrade {package_name}')
+	os.system('rm outdated.txt')
+
+elif os_name == 'win32':
+	print(f'|===================================================|\n|  Ohhh You Are using Windows, Just Try Linux Once  |\n|===================================================|') 
+
+	#Create File
+	os.system('pip3 list -o > outdated.txt')
+	if 'outdated.txt' in os.listdir():
+		with open('outdated.txt', 'r') as file:
+			for line in file.readlines()[2:]:
+				extract_word = re.findall('^[a-zA-Z]+', line)
+				package_name = ''.join(extract_word)
+				os.system(f'pip3 install --upgrade {package_name}')
+	os.system('del outdated.txt')
