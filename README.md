@@ -8,4 +8,8 @@ Solve Sudooku
 Its An Python package updater script
 which will update all your outdated python module to latest one
 ```
-
+* Wifi Password Extractor.py
+```
+Extract Password Of all Wifi to which the device was connected
+Note: its only work for Windows system
+```
